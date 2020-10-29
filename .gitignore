@@ -3,3 +3,6 @@ node_modules
 
 #editor files
 .idea/
+
+#environmental variables
+.env
