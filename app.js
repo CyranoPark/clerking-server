@@ -1,5 +1,6 @@
 const createError = require('http-errors');
 const express = require('express');
+const http = require('http');
 
 const initLoaders = require('./loaders');
 const indexRouter = require('./routes/index');
@@ -25,10 +26,13 @@ const startServer = async () => {
         res.locals.error = req.app.get('env') === 'development' ? err : {};
 
         res.status(err.status || 500);
-        res.render('error');
+        res.send({ error: err });
     });
 
-    app.listen(port, (err) => {
+    app.set('port', port);
+
+    const server = http.createServer(app);
+    server.listen(port, (err) => {
         if (err) throw err;
 
         console.log(`> Ready on port ${port} [${env}]`);

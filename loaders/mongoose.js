@@ -7,6 +7,7 @@ module.exports = () => {
 
     mongoose.connect(`${MONGODB_BASE_URL}/${MONGODB_DATABASE_NAME}`, {
         useNewUrlParser: true,
+        useUnifiedTopology: true,
     });
 
     db.on('error', (e) => {
