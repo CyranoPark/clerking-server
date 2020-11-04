@@ -1,6 +1,6 @@
-const UserService = require('../../Service/User');
+import UserService from '../../Service/User';
 
-exports.getUser = async (req, res, next) => {
+export const getUser = async (req, res, next) => {
     try {
         const { userId } = req.param;
         const user = await UserService.getUserById(userId);
