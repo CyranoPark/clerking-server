@@ -3,7 +3,6 @@ import config from '../config';
 
 const initMongooseLoader = async (): Promise<void> => {
     const { MONGODB_BASE_URL, MONGODB_DATABASE_NAME } = config;
-
     await mongoose.connect(`${MONGODB_BASE_URL}/${MONGODB_DATABASE_NAME}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
@@ -14,7 +13,7 @@ const initMongooseLoader = async (): Promise<void> => {
         console.error(e);
     });
 
-    mongoose.connection.once('open', function () {
+    mongoose.connection.once('open', () => {
         console.log('mongo db connected');
     });
 };

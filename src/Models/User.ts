@@ -14,6 +14,11 @@ const userSchema: mongoose.Schema = new mongoose.Schema(
             required: true,
             trim: true,
         },
+        nickname: {
+            type: String,
+            required: true,
+            trim: true,
+        },
         password: {
             type: String,
             required: true,
@@ -24,4 +29,4 @@ const userSchema: mongoose.Schema = new mongoose.Schema(
 );
 
 const User = mongoose.model<IUserModel>('User', userSchema);
-export default User
+export default User;
