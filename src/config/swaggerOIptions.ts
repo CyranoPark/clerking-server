@@ -12,6 +12,7 @@ const swaggerOptions = {
                 url: 'http://127.0.0.1:8888',
             },
         ],
+        tags: [{ name: 'User', description: 'User management' }],
     },
     apis: ['./src/routes/*.ts'],
 };
